@@ -3,6 +3,9 @@
   "dest": "../../../dist/@frannca/ngx-image-cropper",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "ngx-img-cropper" : "NgxImgCropper"
+    }
   }
 }
