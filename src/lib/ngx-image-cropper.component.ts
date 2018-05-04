@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   Input,
   OnInit,
@@ -16,10 +17,10 @@ declare var jQuery: any;
   templateUrl: 'ngx-image-cropper.component.html',
   styles: []
 })
-export class NgxImageCropperComponent implements OnInit {
+export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   @Input() height = 350;
-  @Input() image = '';
+  @Input() image = 'assets/image.png';
   @Input() width = 600;
   @ViewChild('cropper', undefined)
   cropper: ImageCropperComponent;
@@ -45,12 +46,14 @@ export class NgxImageCropperComponent implements OnInit {
     this.cropperSettings.cropperDrawSettings.strokeWidth = 1;
 
     this.data = {};
+  }
 
-    // jQuery('.fimage')
-    //   .dimmer({
-    //     on: 'hover'
-    //   })
-    // ;
+  ngAfterViewInit() {
+    jQuery('.fimage')
+      .dimmer({
+        on: 'hover'
+      })
+    ;
   }
 
   cancel() {
