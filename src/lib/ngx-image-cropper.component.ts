@@ -13,11 +13,7 @@ declare var jQuery: any;
 
 @Component({
   selector: 'lib-ngx-image-cropper',
-  template: `
-    <p>
-      ngx-image-cropper works!
-    </p>
-  `,
+  templateUrl: 'ngx-image-cropper.component.html',
   styles: []
 })
 export class NgxImageCropperComponent implements OnInit {
@@ -31,6 +27,7 @@ export class NgxImageCropperComponent implements OnInit {
   active: boolean;
   cropperSettings: CropperSettings;
   data: any;
+  template = 'semantic-ui';
 
   constructor() {
   }
@@ -49,11 +46,11 @@ export class NgxImageCropperComponent implements OnInit {
 
     this.data = {};
 
-    jQuery('.fimage')
-      .dimmer({
-        on: 'hover'
-      })
-    ;
+    // jQuery('.fimage')
+    //   .dimmer({
+    //     on: 'hover'
+    //   })
+    // ;
   }
 
   cancel() {
