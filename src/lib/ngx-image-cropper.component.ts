@@ -66,11 +66,11 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   cancel() {
     this.active = false;
+    this.cropper.reset();
   }
 
   fileChangeListener($event) {
     this.loading = true;
-    this.cropper.reset();
 
     const image: any = new Image();
     const file: File = $event.target.files[0];
@@ -94,6 +94,7 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
   crop() {
     this.image = this.data.image;
     this.active = false;
+    this.cropper.reset();
   }
 
   sleep (time) {
@@ -101,6 +102,7 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
   }
 
   hasImage() {
+    this.noImage = false;
     if (!this.image) {
       this.image = 'assets/upload-picture-flat.svg';
       this.noImage = true;
