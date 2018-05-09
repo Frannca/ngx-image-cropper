@@ -66,7 +66,6 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   cancel() {
     this.active = false;
-    this.noImage = false;
     this.hasImage();
     this.cropper.reset();
   }
