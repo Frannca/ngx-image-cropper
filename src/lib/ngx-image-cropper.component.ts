@@ -25,7 +25,7 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
   @ViewChild('cropper', undefined)
 
   cropper: ImageCropperComponent;
-  noImage = false;
+  noImage = true;
   loading = true;
   active: boolean;
   cropperSettings: CropperSettings;
@@ -66,6 +66,16 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   cancel() {
     this.active = false;
+    this.noImage = false;
+    this.hasImage();
+    this.cropper.reset();
+  }
+
+  crop() {
+    this.image = this.data.image;
+    this.active = false;
+    this.noImage = false;
+    this.hasImage();
     this.cropper.reset();
   }
 
@@ -88,25 +98,20 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
     myReader.readAsDataURL(file);
 
+    $event.target.type = '';
+    $event.target.type = 'file';
+
     this.active = true;
   }
 
-  crop() {
-    this.image = this.data.image;
-    this.active = false;
-    this.cropper.reset();
+  hasImage() {
+    if (this.noImage === true) {
+      this.image = 'assets/upload-picture-flat.svg';
+    }
   }
 
   sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
-  }
-
-  hasImage() {
-    this.noImage = false;
-    if (!this.image) {
-      this.image = 'assets/upload-picture-flat.svg';
-      this.noImage = true;
-    }
   }
 
 }
