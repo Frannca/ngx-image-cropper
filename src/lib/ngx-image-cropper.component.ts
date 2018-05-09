@@ -15,15 +15,17 @@ declare var jQuery: any;
 @Component({
   selector: 'lib-ngx-image-cropper',
   templateUrl: 'ngx-image-cropper.component.html',
-  styles: []
+  styleUrls: ['ngx-image-cropper.component.scss'],
 })
 export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   @Input() height = 350;
-  @Input() image = 'assets/image.png';
+  @Input() image = null;
   @Input() width = 600;
   @ViewChild('cropper', undefined)
+
   cropper: ImageCropperComponent;
+  noImage = false;
   loading = true;
   active: boolean;
   cropperSettings: CropperSettings;
@@ -46,6 +48,8 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
     this.cropperSettings.cropperDrawSettings.strokeWidth = 1;
 
     this.data = {};
+
+    this.hasImage();
   }
 
   ngAfterViewInit() {
@@ -90,6 +94,13 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
+  hasImage() {
+    if (!this.image) {
+      this.image = 'assets/upload-picture-flat.svg';
+      this.noImage = true;
+    }
   }
 
 }

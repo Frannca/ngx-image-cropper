@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <img [src]="image" class="ui bordered large fluid image" [width]="width" [height]="height" id="image" alt="Image">
+      <img [src]="image" class="ui bordered large fluid image" [ngClass]="{'default': noImage}" [width]="width" [height]="height" id="image" alt="Image">
     </div>
   </div>
 
