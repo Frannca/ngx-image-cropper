@@ -19,8 +19,8 @@ declare var jQuery: any;
 })
 export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
-  @Input() height = 350;
   @Input() image = null;
+  @Input() height = 350;
   @Input() width = 600;
   @ViewChild('cropper', undefined)
 
@@ -44,6 +44,7 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
     this.cropperSettings.canvasWidth = this.width;
     this.cropperSettings.canvasHeight = this.height;
     this.cropperSettings.noFileInput = true;
+    this.cropperSettings.dynamicSizing = true;
     this.cropperSettings.cropperDrawSettings.strokeColor = 'rgba(0,0,0,0.5)';
     this.cropperSettings.cropperDrawSettings.strokeWidth = 1;
 
@@ -53,6 +54,9 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    const canvas = document.getElementsByTagName('canvas')[0];
+    canvas.style.width  = '100%';
+
     jQuery('.fimage')
       .dimmer({
         on: 'hover'

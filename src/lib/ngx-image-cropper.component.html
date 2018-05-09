@@ -18,11 +18,22 @@
   </div>
 
   <div [hidden]="!active" class="ui segments">
-    <div class="ui horizontal segments">
-      <div class="ui right aligned segment">
+    <!--<div class="ui horizontal segments">-->
+      <!--<div class="ui right aligned segment">-->
+        <!--<img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>-->
+      <!--</div>-->
+      <!--<div class="ui segment">-->
+        <!--<h4 class="ui header">Preview</h4>-->
+        <!--<img [src]="data.image" class="ui small bordered fluid image" *ngIf="data.image"><br>-->
+        <!--<img [src]="data.image" class="ui medium bordered fluid image" *ngIf="data.image">-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <div class="ui stackable two column grid">
+      <div class="right aligned column">
         <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
       </div>
-      <div class="ui segment">
+      <div class="column">
         <h4 class="ui header">Preview</h4>
         <img [src]="data.image" class="ui small bordered fluid image" *ngIf="data.image"><br>
         <img [src]="data.image" class="ui medium bordered fluid image" *ngIf="data.image">
