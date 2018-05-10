@@ -17,7 +17,7 @@
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "cd dist/@frannca/ngx-image-cropper && ls && semantic-release"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^6.0.0",
     "@angular/common": "^6.0.0",
@@ -66,8 +66,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Frannca/ngx-image-cropper.git"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
