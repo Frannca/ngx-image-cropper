@@ -1,0 +1,46 @@
+<ng-container [ngSwitch]="template">
+  <ng-container *ngSwitchCase="'semantic-ui'">
+    <div [hidden]="active" class="ui center aligned basic segment">
+      <div class="ui image fimage centered align">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <h2 class="ui inverted header">Send a New Image</h2>
+              <label class="ui button" id="inputImagePanel" for="inputImage">
+                <input id="inputImage" type="file" (change)="fileChangeListener($event)" style="display:none;" accept="image/png, image/jpeg">
+                <i class="upload icon" aria-hidden="true"></i>
+                Upload
+              </label>
+            </div>
+          </div>
+        </div>
+        <img [src]="image" class="ui bordered fluid large image" [ngClass]="{'default': noImage}" alt="Image">
+      </div>
+    </div>
+
+    <div [hidden]="!active" class="ui segments">
+      <div class="ui stackable two column grid">
+        <div class="right aligned column">
+          <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+        </div>
+        <div class="column">
+          <h4 class="ui header">Preview</h4>
+          <img [src]="data.image" class="ui small bordered fluid image" *ngIf="data.image"><br>
+          <img [src]="data.image" class="ui medium bordered fluid image" *ngIf="data.image">
+        </div>
+      </div>
+
+      <div class="ui center aligned segment">
+        <button type="button" class="ui green button" (click)="crop()" [ngClass]="{'loading': loading}" [disabled]="loading">
+          <i class="checkmark icon"></i>
+          Finish
+        </button>
+
+        <a class="ui red button" (click)="cancel()">
+          <i class="remove icon"></i>
+          Cancel
+        </a>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
