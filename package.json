@@ -1,10 +1,22 @@
 {
   "name": "@frannca/ngx-image-cropper",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "ngx-img-cropper": "^0.10.2",
     "jquery": "^3.3.1"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Frannca/ngx-image-cropper.git"
+  },
+  "devDependencies": {
+    "semantic-release": "^15.4.0",
+    "travis-deploy-once": "^5.0.0"
   }
 }
