@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  Inject,
   Input,
   OnInit,
   ViewChild
@@ -9,6 +10,10 @@ import {
   CropperSettings,
   ImageCropperComponent
 } from 'ngx-img-cropper';
+import {
+  NgxImageCropperConfig,
+  NgxImageCropperToken
+} from './ngx-image-cropper-config';
 
 declare var jQuery: any;
 
@@ -20,8 +25,8 @@ declare var jQuery: any;
 export class NgxImageCropperComponent implements OnInit, AfterViewInit {
 
   @Input() image = null;
-  @Input() height = 350;
-  @Input() width = 600;
+  @Input() height: number;
+  @Input() width: number;
   @ViewChild('cropper', undefined)
 
   cropper: ImageCropperComponent;
@@ -30,9 +35,17 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
   active: boolean;
   cropperSettings: CropperSettings;
   data: any;
-  template = 'semantic-ui';
+  template: string;
+  ngxImageCropperConfig: NgxImageCropperConfig;
 
-  constructor() {
+  constructor(
+    @Inject(NgxImageCropperToken) token
+  ) {
+    const defaultConfig = new token.defaults;
+    this.ngxImageCropperConfig = { ...defaultConfig, ...token.config };
+    this.template = this.ngxImageCropperConfig.template;
+    this.height = this.ngxImageCropperConfig.height;
+    this.width = this.ngxImageCropperConfig.width;
   }
 
   ngOnInit() {
