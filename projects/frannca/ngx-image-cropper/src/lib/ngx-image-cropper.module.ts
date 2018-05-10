@@ -23,11 +23,7 @@ import { NgxImageCropperService } from './ngx-image-cropper.service';
   exports: [NgxImageCropperComponent]
 })
 export class NgxImageCropperModule {
-  /**
-   * Constructor
-   *
-   * @param {NgxLoginModule} parentModule
-   */
+
   constructor (@Optional() @SkipSelf() parentModule: NgxImageCropperModule) {
     if (parentModule) {
       throw new Error(
@@ -35,12 +31,6 @@ export class NgxImageCropperModule {
     }
   }
 
-  /**
-   * Define the providers and configuration options
-   *
-   * @param options
-   * @returns {ModuleWithProviders}
-   */
   static forRoot(config: Partial<NgxImageCropperConfig> = {}): ModuleWithProviders {
     return {
       ngModule: NgxImageCropperModule,

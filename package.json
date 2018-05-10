@@ -1,15 +1,21 @@
 {
   "name": "frannca-library",
   "version": "0.0.0-development",
+  "author": "Frannca",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular4",
+    "angular6",
+    "ngx",
+    "image",
+    "cropper"
+  ],
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    "build": "ng build @frannca/ngx-image-cropper",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "semantic-release": "cd dist/@frannca/ngx-image-cropper && ls && semantic-release"
   },
   "private": true,
   "dependencies": {
