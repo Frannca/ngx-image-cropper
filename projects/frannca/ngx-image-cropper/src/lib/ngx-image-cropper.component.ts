@@ -44,8 +44,6 @@ export class NgxImageCropperComponent implements OnInit, AfterViewInit {
     const defaultConfig = new token.defaults;
     this.ngxImageCropperConfig = { ...defaultConfig, ...token.config };
     this.template = this.ngxImageCropperConfig.template;
-    this.height = this.ngxImageCropperConfig.height;
-    this.width = this.ngxImageCropperConfig.width;
   }
 
   ngOnInit() {
