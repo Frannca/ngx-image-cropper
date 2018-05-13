@@ -10,10 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    NgxImageCropperModule.forRoot({
-      width: 1028,
-      height: 768
-    })
+    NgxImageCropperModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
