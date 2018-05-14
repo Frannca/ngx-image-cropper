@@ -27,7 +27,7 @@ export class NgxImageCropperModule {
   constructor (@Optional() @SkipSelf() parentModule: NgxImageCropperModule) {
     if (parentModule) {
       throw new Error(
-        'NgxLoginModule is already loaded.');
+        'NgxImageCropper is already loaded.');
     }
   }
 
