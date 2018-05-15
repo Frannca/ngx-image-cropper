@@ -15,7 +15,7 @@
   "scripts": {
     "build": "ng build @frannca/ngx-image-cropper",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "semantic-release": "cd dist/@frannca/ngx-image-cropper && ls && semantic-release"
   },
   "private": false,
   "dependencies": {
