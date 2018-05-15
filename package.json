@@ -15,7 +15,7 @@
   "scripts": {
     "build": "ng build @frannca/ngx-image-cropper",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "cd dist/@frannca/ngx-image-cropper && ls && semantic-release"
+    "semantic-release": "semantic-release"
   },
   "private": false,
   "dependencies": {
@@ -61,7 +61,7 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "travis-deploy-once": "^5.0.0",
-    "semantic-release": "^15.4.0"
+    "semantic-release": "^15.4.1"
   },
   "repository": {
     "type": "git",
